@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang='en-GB'>
+<head>
+    <title>Music Identifier</title>
+    <style>
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: teal;
+            color: #fff;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .logo {
+            font-size: 30px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 1em;
+            font-size: 18px;
+        }
+
+        .menu li:hover:not(.active) {
+            background-color: #4c9e9e;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .menu li {
+            padding: 5px 14px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .active {
+            background-color: #4caf98;
+            border-radius: 5px;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100px 100px;
+            grid-gap: 10px;
+        }
+
+        .left {
+            margin: 20px;
+            /*background-color: #4c9e9e;*/
+        }
+
+        .right {
+            margin: 20px;
+            /*background-color: #4c9e9e;*/
+        }
+
+        .btn {
+            /*margin-top: 5px;*/
+            /*background-color: #64c2ac;*/
+            /*border: none;*/
+            /*!*width: 10vw;*!*/
+            /*height: 2vw;*/
+            font-size: 15px;
+            /*color: #FFFFFF;*/
+            /*border-radius: 5px;*/
+            /*!*font-weight: bold;*!*/
+            /*cursor: pointer;*/
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">Music Identifier</div>
+    <ul class="menu">
+        <li class="active"><a href="http://localhost:5000">Home</a></li>
+        <li><a href="http://localhost:5000/fingerprint">Fingerprint</a></li>
+        <li><a href="http://localhost:5000/find">Find</a></li>
+        <li><a href="http://localhost:5000/database">Database</a></li>
+    </ul>
+</nav>
+<div class="wrapper">
+    <div class="left">
+        <h2>Generate Fingerprint</h2>
+        <p>Upload the music file here. The song will be stored in our database, which helps us to enrich the
+            database, and the generated audio fingerprints will be displayed to you</p>
+        <a href="http://localhost:5000/fingerprint">
+            <button class="btn">Try Fingerprint Generation -></button>
+        </a>
+    </div>
+    <div class="right">
+        <h2>Find Song</h2>
+        <p>Upload the music file here. It will return you the song title and confidence level of the top five
+            fingerprint matches</p>
+        <a href="http://localhost:5000/find">
+            <button class="btn">Try Song Search -></button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

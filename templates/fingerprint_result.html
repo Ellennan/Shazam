@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate fingerprint</title>
+    <style>
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: teal;
+            color: #fff;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .logo {
+            font-size: 30px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 1em;
+            font-size: 18px;
+        }
+
+        .menu li:hover:not(.active) {
+            background-color: #4c9e9e;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .menu li {
+            padding: 5px 14px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .active {
+            background-color: #4caf98;
+            border-radius: 5px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table.center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="logo">Music Identifier</div>
+    <ul class="menu">
+        <li><a href="http://localhost:5000">Home</a></li>
+        <li><a href="http://localhost:5000/fingerprint">Fingerprint</a></li>
+        <li><a href="http://localhost:5000/find">Find</a></li>
+        <li><a href="http://localhost:5000/database">Database</a></li>
+    </ul>
+</nav>
+
+<h3>Generate Fingerprint Result</h3>
+{% if re == 0 %}
+<h4>Fingerprint already exists</h4>
+{% else %}
+<h4>Fingerprint Generated Successfully</h4>
+<table class="center">
+    <thead>
+    <th>Song ID</th>
+    <th>Song Name</th>
+    <th>File Hash</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{re[0]}}</td>
+        <td>{{re[1]}}</td>
+        <td>{{re[2]}}</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table class="center">
+    <thead>
+    <th>Fingerprint</th>
+    <th>Offset</th>
+    </thead>
+    <tbody>
+    {% for hash, offset in re[3] %}
+    <tr>
+        <td>{{hash}}</td>
+        <td>{{offset}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+</body>
+</html>
